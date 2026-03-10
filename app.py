@@ -6,8 +6,7 @@ import os
 app = Flask(__name__)
 
 
-
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_API_KEY = "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"
 client = Groq(api_key=GROQ_API_KEY)
 
 ANALYSIS_PROMPT = """You are a scam detection expert. Analyze the following message and return ONLY valid JSON (no markdown, no extra text).
@@ -70,3 +69,4 @@ def analyze():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
