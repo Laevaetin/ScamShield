@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScamShield — AI Scam Detector</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>ScamShield</h1>
+      <p class="tagline">Paste suspicious text here!</p>
+    </header>
+
+    <main>
+      <!-- Hero / Input section -->
+      <div id="hero">
+        <form id="form">
+          <textarea id="inp-msg" placeholder="Paste any suspicious message, email, or text here..." rows="8"
+            maxlength="5000"></textarea>
+
+          <div class="form-footer">
+            <div class="examples">
+              <span>Try:</span>
+              <button type="button" onclick="loadExample('phishing')">Phishing email</button>
+              <button type="button" onclick="loadExample('sms')">Smishing text</button>
+              <button type="button" onclick="loadExample('safe')">Normal message</button>
+            </div>
+          </div>
+
+          <button type="submit" id="analyze-btn">Analyze</button>
+        </form>
+      </div>
+
+      <!-- Loading -->
+      <div id="loading" class="hidden">
+        <p>Analyzing...</p>
+      </div>
+
+      <!-- Results -->
+      <div id="results" class="hidden">
+        <div id="verdict-box" class="verdict-box">
+          <div class="verdict-top">
+            <span id="verdict-label" class="verdict-label"></span>
+            <span id="confidence-label" class="confidence"></span>
+          </div>
+          <p id="verdict-summary" class="verdict-summary"></p>
+        </div>
+
+        <div class="details">
+          <div class="detail-row">
+            <span class="detail-label">Scam Type</span>
+            <span id="scam-type"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">What They Want</span>
+            <span id="what-they-want"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">What To Do</span>
+            <span id="what-to-do"></span>
+          </div>
+        </div>
+
+        <div id="red-flags-section">
+          <h3>Red Flags</h3>
+          <ul id="red-flags-list"></ul>
+        </div>
+
+        <button class="reset-btn" onclick="reset()">← Analyze another</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+
+</html>
